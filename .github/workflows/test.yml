@@ -2,8 +2,12 @@ name: Test code
 run-name: "Run workflow by @${{ github.actor }}"
 on:
   push:
+    paths-ignore:
+      - .vscode
   pull_request:
     branches: [main]
+    paths-ignore:
+      - .vscode
 jobs:
   run_unit_tests:
     runs-on: ubuntu-latest
