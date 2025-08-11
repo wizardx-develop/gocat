@@ -1,5 +1,5 @@
 name: Test code
-run-name: "Run workflow by @${{ github.actor }}"
+run-name: "Run workflow by @${{ github.actor }} on event ${{ github.event_name }}"
 on:
   push:
     paths-ignore:
