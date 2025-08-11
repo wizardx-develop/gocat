@@ -1,0 +1,20 @@
+name: Test code
+run-name: "Run workflow by @${{ github.actor }}"
+on:
+  push:
+  pull_request:
+    branches: [main]
+jobs:
+  run_unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+      - name: Setup go dependencies
+        run: go mod tidy
+      - name: Run unit tests
+        run: go test ./...
